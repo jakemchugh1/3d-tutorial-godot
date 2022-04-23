@@ -113,13 +113,14 @@ text = "Press enter to retry"
 align = 1
 valign = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-autoplay = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 6 )
 
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
+[connection signal="jump" from="Player" to="." method="_on_Player_jump"]
 [connection signal="squeak" from="Player" to="." method="_on_Player_squeak"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]

@@ -23,7 +23,7 @@ func initialize(start_position, player_position):
 	$AnimationPlayer.playback_speed = random_speed / min_speed
 
 func squash():
-	emit_signal("squashed")
+	emit_signal("squashed", translation)
 	queue_free()
 	
 func squeak():

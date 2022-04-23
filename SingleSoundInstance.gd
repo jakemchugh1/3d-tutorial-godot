@@ -9,7 +9,6 @@ func setPitch(pitch):
 	
 func playSound():
 	$AudioStreamPlayer3D.play()
-	
-func _process(_delta):
-	if not $AudioStreamPlayer3D.playing:
-		queue_free()
+
+func _on_AudioStreamPlayer3D_finished():
+	queue_free()
