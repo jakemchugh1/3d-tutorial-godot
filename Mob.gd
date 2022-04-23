@@ -24,6 +24,10 @@ func initialize(start_position, player_position):
 func squash():
 	emit_signal("squashed")
 	queue_free()
+	
+func squeak():
+	$Sounds/Squeak.pitch_scale = rand_range(1.5,1.7)
+	$Sounds/Squeak.play()
 
 func _on_VisibilityNotifier_screen_exited():
 	queue_free()

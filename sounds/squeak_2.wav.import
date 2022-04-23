@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/squeak_2.wav-43d50735e610b4f2d48484c58936cfcc.sample"
+
+[deps]
+
+source_file="res://sounds/squeak_2.wav"
+dest_files=[ "res://.import/squeak_2.wav-43d50735e610b4f2d48484c58936cfcc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

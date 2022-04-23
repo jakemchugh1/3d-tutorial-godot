@@ -53,6 +53,10 @@ func _physics_process(delta):
 				
 	$Pivot.rotation.x = PI / 6.0 * velocity.y / jump_impulse
 
+func squeak():
+	$Sounds/Squeak.pitch_scale = rand_range(1.8,2.0)
+	$Sounds/Squeak.play()
+
 
 func _on_Mob_squashed():
 	$Sounds/Squash.pitch_scale = rand_range(0.8,1.0)
