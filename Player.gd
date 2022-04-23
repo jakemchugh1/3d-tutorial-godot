@@ -1,6 +1,7 @@
 extends KinematicBody
 
 signal hit
+signal squeak
 
 export var speed = 14.0
 export var jump_impulse = 20.0
@@ -37,6 +38,7 @@ func _physics_process(delta):
 	
 	if is_on_floor() and Input.is_action_pressed("jump"):
 		velocity.y += jump_impulse
+		$Sounds/JumpSound.stop()
 		$Sounds/JumpSound.pitch_scale = rand_range(0.8,1.0)
 		$Sounds/JumpSound.play()
 	
@@ -54,8 +56,7 @@ func _physics_process(delta):
 	$Pivot.rotation.x = PI / 6.0 * velocity.y / jump_impulse
 
 func squeak():
-	$Sounds/Squeak.pitch_scale = rand_range(1.8,2.0)
-	$Sounds/Squeak.play()
+	emit_signal("squeak", translation)
 
 
 func _on_Mob_squashed():

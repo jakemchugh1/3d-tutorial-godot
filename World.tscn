@@ -121,4 +121,5 @@ autoplay = true
 environment = ExtResource( 6 )
 
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
+[connection signal="squeak" from="Player" to="." method="_on_Player_squeak"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]

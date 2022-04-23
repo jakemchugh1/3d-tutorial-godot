@@ -1,6 +1,7 @@
 extends KinematicBody
 
 signal squashed
+signal squeak
 
 export var min_speed = 10.0
 export var max_speed = 18.0
@@ -26,8 +27,8 @@ func squash():
 	queue_free()
 	
 func squeak():
-	$Sounds/Squeak.pitch_scale = rand_range(1.5,1.7)
-	$Sounds/Squeak.play()
+	emit_signal("squeak", translation)
+
 
 func _on_VisibilityNotifier_screen_exited():
 	queue_free()
