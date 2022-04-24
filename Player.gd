@@ -54,6 +54,20 @@ func _physics_process(delta):
 				velocity.y = bounce_impulse
 				
 	$Pivot.rotation.x = PI / 6.0 * velocity.y / jump_impulse
+	checkBounds()
+
+func checkBounds():
+	if translation.x > 14:
+		translation.x = (translation.x - 14) - 14
+	elif translation.x < -14:
+		translation.x = 14 + (translation.x + 14)
+		
+	if translation.z > 14:
+		translation.z = (-21) + (translation.z - 14)
+	elif translation.z < -21:
+		translation.z = 14 - (translation.z + 21)
+		
+
 
 func squeak():
 	emit_signal("squeak", translation)

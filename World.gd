@@ -23,16 +23,17 @@ func _on_MobTimer_timeout():
 	
 	add_child(mob)
 	mob.initialize(mob_spawn_location.translation, player_position)
-	mob.connect("squashed", $UserInterface/ScoreLabel, "_on_Mob_squashed")
 	mob.connect("squashed", $Player, "_on_Mob_squashed")
 	mob.connect("squashed", self, "_on_Mob_squashed")
 	mob.connect("squeak", self, "_on_Squeak")
 
 func _on_Mob_squashed(startLocation):
+	$UserInterface/ScoreLabel._on_Mob_squashed()
 	var sound = soundInstance.instance()
 	add_child(sound)
 	sound.initialize(startLocation, squashSound)
 	sound.setPitch(rand_range(0.8,1))
+	sound.setDB(15)
 	sound.playSound()
 
 func _on_Player_hit():
@@ -44,6 +45,7 @@ func _on_Squeak(startLocation):
 	add_child(sound)
 	sound.initialize(startLocation, squeakSound)
 	sound.setPitch(rand_range(1.5,1.7))
+	sound.setDB(10)
 	sound.playSound()
 
 
@@ -52,6 +54,7 @@ func _on_Player_squeak(startLocation):
 	add_child(sound)
 	sound.initialize(startLocation, squeakSound)
 	sound.setPitch(rand_range(1.8,2))
+	sound.setDB(20)
 	sound.playSound()
 
 
@@ -60,4 +63,5 @@ func _on_Player_jump(startLocation):
 	add_child(sound)
 	sound.initialize(startLocation, jumpSound)
 	sound.setPitch(rand_range(0.8,1))
+	sound.setDB(15)
 	sound.playSound()
