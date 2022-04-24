@@ -23,7 +23,6 @@ func _on_MobTimer_timeout():
 	
 	add_child(mob)
 	mob.initialize(mob_spawn_location.translation, player_position)
-	mob.connect("squashed", $Player, "_on_Mob_squashed")
 	mob.connect("squashed", self, "_on_Mob_squashed")
 	mob.connect("squeak", self, "_on_Squeak")
 
